@@ -1,3 +1,27 @@
+$(document).ready(function(){
+    nombreColores.map((color)=>{
+      let divColor = '<div class="color-paleta"></div>';    
+      $(".color-paleta").css("background-color",color);
+      console.log(color);
+      $('#paleta').append(divColor);
+    })
+
+    for(let i = 0; i<1750;i++){
+      let divPixel = '<div></div>';
+      $('#grilla-pixeles').append(divPixel);
+    }
+  
+    //cambia color del indicador con la paleta
+    $(".color-paleta").click(
+      function() {
+        // Se guarda el color de la rueda en colorActual
+        console.log("click");
+        colorActual = $(".color-paleta").css("background-color");
+        // Completar para que cambie el indicador-de-color al colorActual
+        $('#indicador-de-color').css("background-color",colorActual);
+      });
+});
+
 var nombreColores = ['White', 'LightYellow',
   'LemonChiffon', 'LightGoldenrodYellow', 'PapayaWhip', 'Moccasin', 'PeachPuff', 'PaleGoldenrod', 'Bisque', 'NavajoWhite', 'Wheat', 'BurlyWood', 'Tan',
   'Khaki', 'Yellow', 'Gold', 'Orange', 'DarkOrange', 'OrangeRed', 'Tomato', 'Coral', 'DarkSalmon', 'LightSalmon', 'LightCoral', 'Salmon', 'PaleVioletRed',
@@ -29,15 +53,8 @@ colorPersonalizado.addEventListener('change',
     // Se guarda el color de la rueda en colorActual
     colorActual = colorPersonalizado.value;
     // Completar para que cambie el indicador-de-color al colorActual
-
+    $('#indicador-de-color').css("background-color",colorActual);
 
   })
 );
 
-function crearPaleta(){
-  nombreColores.map((color)=>{
-    let divColor = '<div className="color-paleta"></div>';
-    $('.color-paleta').css({'background-color':color});
-    $('#paleta').append(divColor);
-  })
-}
