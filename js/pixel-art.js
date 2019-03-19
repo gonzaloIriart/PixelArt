@@ -33,3 +33,11 @@ colorPersonalizado.addEventListener('change',
 
   })
 );
+
+function crearPaleta(){
+  nombreColores.map((color)=>{
+    let divColor = '<div className="color-paleta"></div>';
+    $('.color-paleta').css({'background-color':color});
+    $('#paleta').append(divColor);
+  })
+}
