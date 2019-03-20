@@ -58,3 +58,20 @@ colorPersonalizado.addEventListener('change',
   })
 );
 
+$("#batman").click(function(){
+ console.log("click batman");
+ 
+});
+
+$("#wonder").click(function(){
+  console.log("click wonder");
+ });
+
+ $("#flash").click(function(){
+  console.log("click flash");
+ });
+
+ $("#invisible").click(function(){
+  console.log("click invisible");
+ });
+
