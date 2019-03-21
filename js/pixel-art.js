@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  //Not working
     nombreColores.map((color)=>{
       let divColor = '<div class="color-paleta"></div>';    
       $(".color-paleta").css("background-color",color);
@@ -7,17 +8,17 @@ $(document).ready(function(){
     })
 
     for(let i = 0; i<1750;i++){
-      let divPixel = '<div></div>';
+      let divPixel = '<div class =' + i +'></div>';
       $('#grilla-pixeles').append(divPixel);
     }
   
     //cambia color del indicador con la paleta
     $(".color-paleta").click(
       function() {
-        // Se guarda el color de la rueda en colorActual
+        
         console.log("click");
         colorActual = $(".color-paleta").css("background-color");
-        // Completar para que cambie el indicador-de-color al colorActual
+        
         $('#indicador-de-color').css("background-color",colorActual);
       });
 });
@@ -58,20 +59,29 @@ colorPersonalizado.addEventListener('change',
   })
 );
 
+//eventos de click
+
 $("#batman").click(function(){
- console.log("click batman");
- 
+ for(i=0;i<1750;i++){
+    $('.'+i).css("background",batman[i]);
+ } 
 });
 
 $("#wonder").click(function(){
-  console.log("click wonder");
+  for(i=0;i<1750;i++){
+    $('.'+i).css("background",wonder[i]);
+ } 
  });
 
  $("#flash").click(function(){
-  console.log("click flash");
+  for(i=0;i<1750;i++){
+    $('.'+i).css("background",flash[i]);
+ } 
  });
 
  $("#invisible").click(function(){
-  console.log("click invisible");
+  for(i=0;i<1750;i++){
+    $('.'+i).css("background",invisible[i]);
+ } 
  });
 
