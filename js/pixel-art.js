@@ -2,7 +2,7 @@ $(document).ready(function(){
   //Not working
     nombreColores.map((color)=>{
       let divColor = '<div class="color-paleta"></div>';    
-      $(".color-paleta").css("background-color",color);
+      $(".color-paleta").css("background-color", color);
       console.log(color);
       $('#paleta').append(divColor);
     })
