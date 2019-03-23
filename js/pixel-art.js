@@ -8,29 +8,29 @@ $(document).ready(function(){
       console.log(color);      
     })*/
 
-    //creacion paleta
-    for(let i = 0;i<nombreColores.length;i++){
-      let divColor = '<div class=color-paleta' + i + '></div>';
-      $("#paleta").append(divColor);
-      $(".color-paleta"+ i).addClass("paletaClickeable");
-      $(".color-paleta"+ i).css("background-color",nombreColores[i]);
-     
-    }
+    crearPaleta()
+    crearPixeles()
 
-    //creacion de pixeles
-    for(let i = 0; i<1750;i++){
-      let divPixel = '<div class =' + i +'></div>';
-      $('#grilla-pixeles').append(divPixel);
-    }
-  
     //cambia color del indicador con la paleta
-    $(".paletaClickeable").click(
-      function() {        
-        console.log("click");
-        colorActual = $(this).css("background-color");    
-        console.log(colorActual);    
-        $('#indicador-de-color').css("background-color",colorActual);
-      });
+ $(".paletaClickeable").click(
+  function() {        
+    console.log("click");
+    colorActual = $(this).css("background-color");    
+    console.log(colorActual);    
+    $('#indicador-de-color').css("background-color",colorActual);
+  });
+
+  //boton borrar
+  $("#borrar").click(function(){
+    console.log("click")
+    $('.pixel').css("background-color",'White')
+  });
+    //cambia color de pixeles
+    $("#grilla-pixeles div").click(function(){
+      console.log("click pixel");
+      let nuevoColor = $('#indicador-de-color').css("background-color");
+      $(this).css("background-color", nuevoColor);
+    });
 });
 
 var nombreColores = ['White', 'LightYellow',
@@ -69,7 +69,28 @@ colorPersonalizado.addEventListener('change',
   })
 );
 
+//creacion paleta
+function crearPaleta(){
+  for(let i = 0;i<nombreColores.length;i++){
+    let divColor = '<div class=color-paleta' + i + '></div>';
+    $("#paleta").append(divColor);
+    $(".color-paleta"+ i).addClass("paletaClickeable");
+    $(".color-paleta"+ i).css("background-color",nombreColores[i]);
+   
+  }
+}
+
+//creacion de pixeles
+function crearPixeles(){
+  for(let i = 0; i<1750;i++){
+    let divPixel = '<div class =' + i +'></div>';    
+    $('#grilla-pixeles').append(divPixel);
+    $("."+ i).addClass("pixel");
+  }
+}
+
 //eventos de click
+
 
 $("#batman").click(function(){
  for(i=0;i<1750;i++){
@@ -95,3 +116,4 @@ $("#wonder").click(function(){
  } 
  });
 
+ 
