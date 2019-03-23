@@ -7,7 +7,7 @@ $(document).ready(function(){
       $(".color-paleta").css("background-color", color);
       console.log(color);      
     })*/
-
+    
     crearPaleta()
     crearPixeles()
 
@@ -25,12 +25,13 @@ $(document).ready(function(){
     console.log("click")
     $('.pixel').css("background-color",'White')
   });
-    //cambia color de pixeles
-    $("#grilla-pixeles div").click(function(){
+    //cambia color de pixeles $('#myElement').on('mousedown', function() {
+    $("#grilla-pixeles div").mousedown(function(){
       console.log("click pixel");
       let nuevoColor = $('#indicador-de-color').css("background-color");
       $(this).css("background-color", nuevoColor);
     });
+
 });
 
 var nombreColores = ['White', 'LightYellow',
@@ -115,5 +116,3 @@ $("#wonder").click(function(){
     $('.'+i).css("background",invisible[i]);
  } 
  });
-
- 
