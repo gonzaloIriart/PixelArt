@@ -1,24 +1,34 @@
 $(document).ready(function(){
   //Not working
+  /*
     nombreColores.map((color)=>{
       let divColor = '<div class="color-paleta"></div>';    
-      $(".color-paleta").css("background-color", color);
-      console.log(color);
       $('#paleta').append(divColor);
-    })
+      $(".color-paleta").css("background-color", color);
+      console.log(color);      
+    })*/
 
+    //creacion paleta
+    for(let i = 0;i<nombreColores.length;i++){
+      let divColor = '<div class=color-paleta' + i + '></div>';
+      $("#paleta").append(divColor);
+      $(".color-paleta"+ i).addClass("paletaClickeable");
+      $(".color-paleta"+ i).css("background-color",nombreColores[i]);
+     
+    }
+
+    //creacion de pixeles
     for(let i = 0; i<1750;i++){
       let divPixel = '<div class =' + i +'></div>';
       $('#grilla-pixeles').append(divPixel);
     }
   
     //cambia color del indicador con la paleta
-    $(".color-paleta").click(
-      function() {
-        
+    $(".paletaClickeable").click(
+      function() {        
         console.log("click");
-        colorActual = $(".color-paleta").css("background-color");
-        
+        colorActual = $(this).css("background-color");    
+        console.log(colorActual);    
         $('#indicador-de-color').css("background-color",colorActual);
       });
 });
