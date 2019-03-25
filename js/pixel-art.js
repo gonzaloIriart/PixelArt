@@ -21,7 +21,10 @@ $(document).ready(function(){
 
   //boton borrar
   $("#borrar").click(function(){
-    $('.pixel').css("background-color",'White')
+    $("#grilla-pixeles div").each(function(pixel){
+      $(this).animate({backgroundColor : 'White'})
+    })
+    
   });
 
 
@@ -109,29 +112,33 @@ function crearPixeles(){
   }
 }
 
-//eventos de click
 
+//Funciones para pintan los superheroes
 
 $("#batman").click(function(){
- for(i=0;i<1750;i++){
-    $('.'+i).css("background",batman[i]);
- } 
+   cargarSuperheroe(batman)
 });
 
 $("#wonder").click(function(){
-  for(i=0;i<1750;i++){
-    $('.'+i).css("background",wonder[i]);
- } 
+  cargarSuperheroe(wonder)
  });
 
  $("#flash").click(function(){
-  for(i=0;i<1750;i++){
-    $('.'+i).css("background",flash[i]);
- } 
+    cargarSuperheroe(flash)
  });
 
  $("#invisible").click(function(){
-  for(i=0;i<1750;i++){
-    $('.'+i).css("background",invisible[i]);
- } 
+  cargarSuperheroe(invisible)
  });
+
+ //Evento para guardar, se modifico la funcion en recursos.js para que tome el nombre por parametro
+
+ $("#guardar").click(function(){
+  let nombre = prompt("Ingresar nombre para el archivo")
+  if(nombre != null){
+    if(nombre === ""){
+      nombre = "pixel-art"
+    }    
+    guardarPixelArt(nombre)
+  }
+});
