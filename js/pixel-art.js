@@ -7,14 +7,13 @@ $(document).ready(function(){
       $(".color-paleta").css("background-color", color);
       console.log(color);      
     })*/
-    
+   
     crearPaleta()
     crearPixeles()
 
     //cambia color del indicador con la paleta
  $(".paletaClickeable").click(
-  function() {        
-    console.log("click");
+  function() {           
     colorActual = $(this).css("background-color");    
     console.log(colorActual);    
     $('#indicador-de-color').css("background-color",colorActual);
@@ -22,15 +21,39 @@ $(document).ready(function(){
 
   //boton borrar
   $("#borrar").click(function(){
-    console.log("click")
     $('.pixel').css("background-color",'White')
   });
+
+
     //cambia color de pixeles $('#myElement').on('mousedown', function() {
+
+      let isMouseDown = false;
+
     $("#grilla-pixeles div").mousedown(function(){
-      console.log("click pixel");
-      let nuevoColor = $('#indicador-de-color').css("background-color");
-      $(this).css("background-color", nuevoColor);
-    });
+      isMouseDown = true;
+      let $thisPixel = $(this);
+      
+      setInterval(cambiarColorPixel($thisPixel),30);
+    })
+
+    $("#grilla-pixeles div").mouseup(function(){
+      isMouseDown = false;
+    })
+
+    $("#grilla-pixeles div").mousedown(function(){
+      let $thisPixel = $(this);
+      setInterval(cambiarColorPixel($thisPixel),30);
+    })
+
+    function cambiarColorPixel(thisPixel){
+      if(isMouseDown){
+        
+        console.log(thisPixel)
+      let nuevoColor = $('#indicador-de-color').css("background-color")
+      thisPixel.css("background-color",nuevoColor)
+      }
+      
+    }
 
 });
 
