@@ -32,27 +32,23 @@ $(document).ready(function(){
     $("#grilla-pixeles div").mousedown(function(){
       isMouseDown = true;
       let $thisPixel = $(this);
-      
-      setInterval(cambiarColorPixel($thisPixel),30);
+      cambiarColorPixel($thisPixel);
     })
 
     $("#grilla-pixeles div").mouseup(function(){
       isMouseDown = false;
     })
 
-    $("#grilla-pixeles div").mousedown(function(){
+    $("#grilla-pixeles div").mouseover(function(){
       let $thisPixel = $(this);
-      setInterval(cambiarColorPixel($thisPixel),30);
+      cambiarColorPixel($thisPixel);
     })
 
     function cambiarColorPixel(thisPixel){
-      if(isMouseDown){
-        
-        console.log(thisPixel)
+      if(isMouseDown){        
       let nuevoColor = $('#indicador-de-color').css("background-color")
       thisPixel.css("background-color",nuevoColor)
-      }
-      
+      }      
     }
 
 });
