@@ -21,8 +21,8 @@ $(document).ready(function(){
 
   //boton borrar
   $("#borrar").click(function(){
-    $("#grilla-pixeles div").each(function(pixel){
-      $(this).animate({backgroundColor : 'White'})
+    $("#grilla-pixeles div").each(function(){
+      $(this).animate({backgroundColor : "#fff"},500)    
     })
     
   });
