@@ -20,7 +20,10 @@ $(document).ready(function(){
 
   //boton borrar
   $("#borrar").click(function(){
-    $('.pixel').css("background-color",'White')
+    $("#grilla-pixeles div").each(function(){
+      $(this).animate({backgroundColor : "#fff"},500)    
+    })
+    
   });
 
 
@@ -29,14 +32,21 @@ $(document).ready(function(){
       let isMouseDown = false;
 
     $("#grilla-pixeles div").mousedown(function(){
+<<<<<<< HEAD
       isMouseDown = true;       
       console.log("mouse down")
+=======
+      isMouseDown = true;
+      let $thisPixel = $(this);
+      cambiarColorPixel($thisPixel);
+>>>>>>> fb766641f8004ede7dd1054c33ecf64b164e9fa9
     })
 
     $("#grilla-pixeles div").mouseup(function(){
       isMouseDown = false;
       console.log("mouse up")
     })
+<<<<<<< HEAD
     
     $("grilla-pixeles div").mouseover(function() {   
       let $thisPixel = $(this);  
@@ -46,14 +56,19 @@ $(document).ready(function(){
       console.log("mouse moving")
       cambiarColorPixel($thisPixel);    
       console.log("a")
+=======
+
+    $("#grilla-pixeles div").mouseover(function(){
+      let $thisPixel = $(this);
+      cambiarColorPixel($thisPixel);
+>>>>>>> fb766641f8004ede7dd1054c33ecf64b164e9fa9
     })
 
     function cambiarColorPixel(thisPixel){
       if(isMouseDown){        
       let nuevoColor = $('#indicador-de-color').css("background-color")
       thisPixel.css("background-color",nuevoColor)
-      }
-      
+      }      
     }
 
 });
@@ -114,29 +129,33 @@ function crearPixeles(){
   }
 }
 
-//eventos de click
 
+//Funciones para pintan los superheroes
 
 $("#batman").click(function(){
- for(i=0;i<1750;i++){
-    $('.'+i).css("background",batman[i]);
- } 
+   cargarSuperheroe(batman)
 });
 
 $("#wonder").click(function(){
-  for(i=0;i<1750;i++){
-    $('.'+i).css("background",wonder[i]);
- } 
+  cargarSuperheroe(wonder)
  });
 
  $("#flash").click(function(){
-  for(i=0;i<1750;i++){
-    $('.'+i).css("background",flash[i]);
- } 
+    cargarSuperheroe(flash)
  });
 
  $("#invisible").click(function(){
-  for(i=0;i<1750;i++){
-    $('.'+i).css("background",invisible[i]);
- } 
+  cargarSuperheroe(invisible)
  });
+
+ //Evento para guardar, se modifico la funcion en recursos.js para que tome el nombre por parametro
+
+ $("#guardar").click(function(){
+  let nombre = prompt("Ingresar nombre para el archivo")
+  if(nombre != null){
+    if(nombre === ""){
+      nombre = "pixel-art"
+    }    
+    guardarPixelArt(nombre)
+  }
+});
