@@ -15,7 +15,6 @@ $(document).ready(function(){
  $(".paletaClickeable").click(
   function() {           
     colorActual = $(this).css("background-color");    
-    console.log(colorActual);    
     $('#indicador-de-color').css("background-color",colorActual);
   });
 
@@ -30,25 +29,27 @@ $(document).ready(function(){
       let isMouseDown = false;
 
     $("#grilla-pixeles div").mousedown(function(){
-      isMouseDown = true;
-      let $thisPixel = $(this);
-      
-      setInterval(cambiarColorPixel($thisPixel),30);
+      isMouseDown = true;       
+      console.log("mouse down")
     })
 
     $("#grilla-pixeles div").mouseup(function(){
       isMouseDown = false;
+      console.log("mouse up")
     })
-
-    $("#grilla-pixeles div").mousedown(function(){
-      let $thisPixel = $(this);
-      setInterval(cambiarColorPixel($thisPixel),30);
+    
+    $("grilla-pixeles div").mouseover(function() {   
+      let $thisPixel = $(this);  
+      if(isMouseDown){
+        console.log("mouse down and moving")
+      }
+      console.log("mouse moving")
+      cambiarColorPixel($thisPixel);    
+      console.log("a")
     })
 
     function cambiarColorPixel(thisPixel){
-      if(isMouseDown){
-        
-        console.log(thisPixel)
+      if(isMouseDown){        
       let nuevoColor = $('#indicador-de-color').css("background-color")
       thisPixel.css("background-color",nuevoColor)
       }
