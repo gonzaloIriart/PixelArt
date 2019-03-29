@@ -21,7 +21,7 @@ $(document).ready(function(){
   //boton borrar
   $("#borrar").click(function(){
     $("#grilla-pixeles div").each(function(){
-      $(this).animate({backgroundColor : "#fff"},500)    
+      $(this).animate({backgroundColor: "white"});      
     })
     
   });
@@ -32,36 +32,19 @@ $(document).ready(function(){
       let isMouseDown = false;
 
     $("#grilla-pixeles div").mousedown(function(){
-<<<<<<< HEAD
-      isMouseDown = true;       
-      console.log("mouse down")
-=======
       isMouseDown = true;
       let $thisPixel = $(this);
       cambiarColorPixel($thisPixel);
->>>>>>> fb766641f8004ede7dd1054c33ecf64b164e9fa9
     })
 
     $("#grilla-pixeles div").mouseup(function(){
       isMouseDown = false;
       console.log("mouse up")
     })
-<<<<<<< HEAD
-    
-    $("grilla-pixeles div").mouseover(function() {   
-      let $thisPixel = $(this);  
-      if(isMouseDown){
-        console.log("mouse down and moving")
-      }
-      console.log("mouse moving")
-      cambiarColorPixel($thisPixel);    
-      console.log("a")
-=======
 
     $("#grilla-pixeles div").mouseover(function(){
       let $thisPixel = $(this);
       cambiarColorPixel($thisPixel);
->>>>>>> fb766641f8004ede7dd1054c33ecf64b164e9fa9
     })
 
     function cambiarColorPixel(thisPixel){
